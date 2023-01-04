@@ -1,0 +1,36 @@
+{
+  "postbackUrl": "https://webhook.site/c920ebc9-4525-40ba-9fda-212b3e16820b",
+  "id": 1105659,
+  "type": "transaction",
+  "data": {
+    "paymentMethod": "pix",
+    "operation": "cashout",
+    "amount": 50,
+    "status": "paid",
+    "recipient": {
+      "document": {
+        "value": "05777551963",
+        "type": "CPF"
+      },
+      "type": "Customer",
+      "name": "IURE SAUZEN CARNEIRO",
+      "account": {
+        "branch": "0737",
+        "number": "832271",
+        "type": "ContaCorrente",
+        "bank": {
+          "ispb": "82065285",
+          "name": "COOP PARQ ARAUCARIAS PR/SC/SP",
+          "code": null
+        }
+      }
+    },
+    "paidAt": "2023-01-04T19:33:15.000Z",
+    "createdAt": "2023-01-04T19:33:14.904Z",
+    "updatedAt": "2023-01-04T19:33:19.680Z",
+    "conciliationId": null,
+    "acquirerType": "voluti",
+    "acquirerStatus": "DELIVERED",
+    "endToEndId": "E710278662023010419331342352865P"
+  }
+}
