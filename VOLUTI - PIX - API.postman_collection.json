@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "130f315c-7fcc-4743-b149-e8faef12d692",
+		"name": "VOLUTI - PIX - API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PIX CASHIN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{voluti-api-authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"paymentMethod\": \"pix\",\n    \"pix\": {        \n        \"expiresAt\": \"2023-01-04 17:10:00\", \n        \"description\": \"TESTE QR CODE APOSTAS\"        \n    },\n    \"amount\": 200, \n    \"postbackUrl\": \"https://webhook.site/c920ebc9-4525-40ba-9fda-212b3e16820b\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{bass-url}}/v1/transactions",
+					"host": [
+						"{{bass-url}}"
+					],
+					"path": [
+						"v1",
+						"transactions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PIX CASHIN",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{api-authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"paymentMethod\": \"pix\",\n    \"pix\": {        \n        \"expiresAt\": \"2023-01-04 17:10:00\", /* DATA DE EXPIRAÇÃO DO PIX, CASO NÃO ENVIADO CONSIDERA-SE 24H */\n        \"description\": \"QUALQUER DESCRIÇÃO\",\n        \"conciliationId\" :\"\" /* ID PARA CONCILIAÇÃO STRING ENTRE 26-35 CARACTERES CASO NÃO SEJA ENVIADO SERA GERADO UM AUTOMATICAMENTE E DEVOLVIDO NA RESPONSE */\n    },\n    \"amount\": 1000, /* VALOR EM CENTAVOS */\n    \"postbackUrl\": \"https://webhook.site/c920ebc9-4525-40ba-9fda-212b3e16820b\" /* URL PARA RECEBER O WEBHOOK */\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/v1/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"transactions"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "571"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23b-OznTJJ49hqfcr6NGI3ZoD8uWOkc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jan 2023 12:12:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"qrCode\": \"00020126960014BR.GOV.BCB.PIX2574api-pix-h.bancobs2.com.br/spi/v2/cobv/16cb0130-55b4-4fc0-9371-71bfda2e62d8520400005303986540510.005802BR5924Voluti Gestao Financeira6009SAO PAULO61081440049062070503***6304379E\",\n    \"encodedValue\": \"MDAwMjAxMjY5NjAwMTRCUi5HT1YuQkNCLlBJWDI1NzRhcGktcGl4LWguYmFuY29iczIuY29tLmJyL3NwaS92Mi9jb2J2LzE2Y2IwMTMwLTU1YjQtNGZjMC05MzcxLTcxYmZkYTJlNjJkODUyMDQwMDAwNTMwMzk4NjU0MDUxMC4wMDU4MDJCUjU5MjRWb2x1dGkgR2VzdGFvIEZpbmFuY2VpcmE2MDA5U0FPIFBBVUxPNjEwODE0NDAwNDkwNjIwNzA1MDMqKio2MzA0Mzc5RQ==\",\n    \"conciliationId\": \"f8c104a9c0164c1684538d16f2fe9fcc\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PIX CASHOUT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{voluti-api-authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pixKey\": {\n        \"type\": \"PHONE\", \n        \"key\": \"+5546991228205\"\n    },\n    \"amount\": 100, \n    \"description\": \"RETIRADA APOSTA TESTE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{bass-url}}/v1/transactions/cashout",
+					"host": [
+						"{{bass-url}}"
+					],
+					"path": [
+						"v1",
+						"transactions",
+						"cashout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PIX CASHOUT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{voluti-api-authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pixKey\": {\n        \"type\": \"PHONE\", \n        \"key\": \"+5511111111111\"\n    },\n    \"amount\": 100, \n    \"description\": \"RETIRADA APOSTA TESTE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bass-url}}/v1/transactions/cashout",
+							"host": [
+								"{{bass-url}}"
+							],
+							"path": [
+								"v1",
+								"transactions",
+								"cashout"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jan 2023 15:00:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "468"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d4-dlxHc4fIHbpbREHptszpkNrOBtQ\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"authenticationCode\": \"09873829-f4d6-4bef-9e06-34dfd6a11342\",\n    \"data\": \"2023-01-04 12:00:38\",\n    \"endToEndId\": \"E710278662023010415003643035876P\",\n    \"recebedor\": {\n        \"ispb\": \"82065285\",\n        \"conta\": {\n            \"banco\": null,\n            \"bancoNome\": \"COOP PARQ ARAUCARIAS PR/SC/SP\",\n            \"agencia\": \"0737\",\n            \"numero\": \"999999\",\n            \"tipo\": \"ContaCorrente\"\n        },\n        \"pessoa\": {\n            \"documento\": \"56576882017\",\n            \"tipoDocumento\": \"CPF\",\n            \"nome\": \"JOAO DOS SANTOS\",\n            \"nomeFantasia\": null,\n            \"conta\": null\n        }\n    },\n    \"description\": \"RETIRADA APOSTA TESTE\",\n    \"amount\": 100\n}"
+				}
+			]
+		},
+		{
+			"name": "PRINT PIX CASHIN",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{api-authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"paymentMethod\": \"pix\",\n    \"pix\": {        \n        \"expiresAt\": \"2023-01-04 17:40:00\",\n        \"description\": \"REFERENTE A APOSTA BRABET\"\n    },\n    \"amount\": 4000,\n    \"postbackUrl\": \"https://webhook.site/c920ebc9-4525-40ba-9fda-212b3e16820b\",\n    \"ip\": \"187.111.111.111\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{bass-url}}/public/transactions/:endToEndId/cashin/print",
+					"host": [
+						"{{bass-url}}"
+					],
+					"path": [
+						"public",
+						"transactions",
+						":endToEndId",
+						"cashin",
+						"print"
+					],
+					"variable": [
+						{
+							"key": "endToEndId",
+							"value": "E1314008820230104121246610695513"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PRINT PIX CASHOUT",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{api-authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"paymentMethod\": \"pix\",\n    \"pix\": {        \n        \"expiresAt\": \"2023-01-04 17:40:00\",\n        \"description\": \"REFERENTE A APOSTA BRABET\"\n    },\n    \"amount\": 4000,\n    \"postbackUrl\": \"https://webhook.site/c920ebc9-4525-40ba-9fda-212b3e16820b\",\n    \"ip\": \"187.111.111.111\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{bass-url}}/public/transactions/:endToEndId/cashout/print",
+					"host": [
+						"{{bass-url}}"
+					],
+					"path": [
+						"public",
+						"transactions",
+						":endToEndId",
+						"cashout",
+						"print"
+					],
+					"variable": [
+						{
+							"key": "endToEndId",
+							"value": "E1314008820230104121246610695513"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
