@@ -1,0 +1,36 @@
+{
+    "postbackUrl": "https://webhook.site/c920ebc9-4525-40ba-9fda-212b3e16820b",
+    "id": 1105647,
+    "type": "transaction",
+    "data": {
+        "paymentMethod": "pix",
+        "operation": "cashin",
+        "amount": 200,
+        "status": "paid",
+        "sender": {
+            "document": {
+                "value": "05777551963",
+                "type": "CPF"
+            },
+            "type": "Customer",
+            "name": "Iure Sauzen Carneiro",
+            "account": {
+                "branch": "1",
+                "number": "227057673",
+                "type": "Poupanca",
+                "bank": {
+                    "ispb": "18236120",
+                    "name": "NU PAGAMENTOS - IP",
+                    "code": "260"
+                }
+            }
+        },
+        "paidAt": "2023-01-04T19:35:24.513Z",
+        "createdAt": "2023-01-04T13:43:41.182Z",
+        "updatedAt": "2023-01-04T19:35:26.458Z",
+        "conciliationId": "d0fc82ca10e54942900e2ab56471e660",
+        "acquirerType": "voluti",
+        "acquirerStatus": "RECEIVED",
+        "endToEndId": "E18236120202301041935s104f853660"
+    }
+}
